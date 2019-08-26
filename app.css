@@ -1,0 +1,24 @@
+.gridSquare{
+    padding: 0px;
+    margin: 0px;
+    width:0;
+    height:0;
+    background:lightpink;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#divGridBox{
+    visibility: hidden;
+    flex-wrap: wrap;
+    overflow: visible;
+    display: flex;
+    height:750px;
+    width:750px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+button{
+    margin: 5;
+    padding: 5px;
+}
