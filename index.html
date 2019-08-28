@@ -12,9 +12,18 @@
 
 <body>
     <h1>Etch-a-Sketch</h1>
-    <button id="btnInput" class="button">Create a Grid</button>
-    <div id="divGridBox"></div>
+    <div id="divBtnWrap">
+        <div id="divBtn">
+            <button id="btnBlack" class="button">New Sketch</button>
+            <button id="btnColor" class="button">Pick a Color!</button>
+        </div>
+    </div>
+    <div id=divContainer>
+        <div id="divGridBox"></div>
+    </div>
+    <script src="https://unpkg.com/vanilla-picker@2"></script>
     <script src="app.js"></script>
+
 </body>
 
 </html>

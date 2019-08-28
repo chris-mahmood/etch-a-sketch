@@ -26,12 +26,37 @@ let setSquareSize = (numSize) => {
     let baseSquare = document.getElementsByClassName("gridSquare");
     let i;
     for (i = 0; i < baseSquare.length; i++) {
-        baseSquare[i].style.height = Math.trunc((750/ numSize)) + "px";
-        baseSquare[i].style.width = Math.trunc((750 / numSize))-1 + "px";
+        baseSquare[i].style.height = (749/ numSize) -1 + "px";
+        baseSquare[i].style.width = (749/ numSize)  -1 + "px";
     }
 }
 
+//Various styles of fill for the grids
+let etchBlack = () => {
+    let gridSquare = document.querySelectorAll(".gridSquare");
+    gridSquare.forEach(gridSquare => {
+        gridSquare.addEventListener('mouseover', (t) => {
+            t.target.style.background = "black";
+        });
+    });
+}
 
+let etchColor = (color) => {
+    let gridSquare = document.querySelectorAll(".gridSquare");
+    gridSquare.forEach(gridSquare => {
+        gridSquare.addEventListener('mouseover', (t) => {
+            t.target.style.background = color.rgbaString;
+        });
+    });
+}
 
+let btnColor= document.querySelector('#btnColor');
+let colorPicker= new Picker(btnColor);
 
-btnInput.addEventListener('click', function () { makeGrid(gridSize()) });
+colorPicker.onDone = function(color){
+    etchColor(color);
+}
+
+btnBlack.addEventListener('click', function () { makeGrid(gridSize()) });
+btnBlack.addEventListener('click', function () { etchBlack() });
+
