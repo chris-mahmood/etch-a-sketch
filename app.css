@@ -1,16 +1,24 @@
 html, body{
     height: 100%;
-}
 
+}
+html{
+    background: url(images/woodwall.jpg) no-repeat center center fixed; 
+}
 .gridSquare{
+    box-sizing: border-box;
     padding: 0px;
     margin: 0px;
     width:0;
     height:0;
-    background:lightpink;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    background: #fae6f0;
+    border: 1px solid black;
 }
+.gridSquare + .gridSquare, .gridSquare:first-child{
+    border-top: none;
+    border-right: none;
+}
+
 #divBtnWrap{
     text-align: center;
 }
@@ -22,19 +30,26 @@ html, body{
     display: flex;
 align-items: center;
 justify-content: center;
+
+
 }
 #divGridBox{
+    padding: 20px;
     visibility: hidden;
     flex-wrap: wrap;
-    overflow: visible;
     display: flex;
     height:750px;
     width:750px;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
+    border-image-slice: 131 125 137 134;
+border-image-width: 20px 20px 20px 20px;
+border-image-outset: 0px 0px 0px 0px;
+border-image-repeat: stretch stretch;
+border-image-source: url("images/frame.png");
+box-shadow:         3px 3px 5px 6px #ccc;
+
 }
 
 button{
-    margin: 5;
+    margin: 5px;
     padding: 5px;
 }

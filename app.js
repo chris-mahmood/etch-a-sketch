@@ -26,12 +26,12 @@ let setSquareSize = (numSize) => {
     let baseSquare = document.getElementsByClassName("gridSquare");
     let i;
     for (i = 0; i < baseSquare.length; i++) {
-        baseSquare[i].style.height = (749/ numSize) -1 + "px";
-        baseSquare[i].style.width = (749/ numSize)  -1 + "px";
+        baseSquare[i].style.height = (750 / numSize) + "px";
+        baseSquare[i].style.width = (750 / numSize) + "px";
     }
 }
 
-//Various styles of fill for the grids
+//Square fills: To be called by buttons
 let etchBlack = () => {
     let gridSquare = document.querySelectorAll(".gridSquare");
     gridSquare.forEach(gridSquare => {
@@ -50,13 +50,58 @@ let etchColor = (color) => {
     });
 }
 
-let btnColor= document.querySelector('#btnColor');
-let colorPicker= new Picker(btnColor);
-
-colorPicker.onDone = function(color){
-    etchColor(color);
+let etchErase = () => {
+    let gridSquare = document.querySelectorAll(".gridSquare");
+    gridSquare.forEach(gridSquare => {
+        gridSquare.addEventListener('mouseover', (t) => {
+            t.target.style.background = "";
+        });
+    });
 }
 
+let etchClear = () => {
+    let gridSquare = document.querySelectorAll(".gridSquare");
+    gridSquare.forEach(gridSquare => {
+        gridSquare.style.background = "";
+    });
+    etchBlack();
+}
+
+let etchGreyscale = () => {
+    let gridSquare = document.querySelectorAll(".gridSquare");
+    gridSquare.forEach(gridSquare => {
+        gridSquare.style.background = "";
+        gridSquare.addEventListener('mouseover', (t) => {
+            t.target.style.background="black";
+            t.target.style.opacity = `${Number(t.target.style.opacity) + 0.1}`;
+        });
+    });
+}
+
+let etchBubble = () => {
+    let gridSquare = document.querySelectorAll(".gridSquare");
+    gridSquare.forEach(gridSquare => {
+        gridSquare.style.background = "url('images/bubble.png')";
+        gridSquare.style.backgroundSize = "100%, 100%";
+        gridSquare.addEventListener('mouseover', (t) => {
+            t.target.style.background = "url('images/popbubble.png')";
+            t.target.style.backgroundSize = "100%, 100%";
+        });
+    });
+}
+
+
+//Button listeners
 btnBlack.addEventListener('click', function () { makeGrid(gridSize()) });
 btnBlack.addEventListener('click', function () { etchBlack() });
+btnGreyscale.addEventListener('click', function () { etchGreyscale() });
+btnEraser.addEventListener('click', function () { etchErase() });
+btnClear.addEventListener('click', function () { etchClear() });
+btnBubble.addEventListener('click', function () { etchBubble() });
+//Color picker code and listener
+let btnColor = document.querySelector('#btnColor');
+let colorPicker = new Picker(btnColor);
 
+colorPicker.onDone = function (color) {
+    etchColor(color);
+}
