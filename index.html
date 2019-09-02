@@ -14,12 +14,67 @@
     <h1>Etch-a-Sketch</h1>
     <div id="divBtnWrap">
         <div id="divBtn">
-            <button id="btnBlack" class="button">New Sketch</button>
+            <div class="svg-wrapper" id="btnBlack">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                        <p><span class="spot"></span>New Sketch</p>
+                    </div>
+                </svg>
+            </div>
+            <!--Next button -->
+            <div class="svg-wrapper" id="btnColor">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                        <p><span class="spot"></span>Color!</p>
+                    </div>
+                </svg>
+            </div>
+            <!--Next button -->
+            <div class="svg-wrapper" id="btnGreyscale">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                        <p><span class="spot"></span>Greyscale</p>
+                    </div>
+                </svg>
+            </div>
+            <div class="svg-wrapper" id="btnBubble">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                        <p><span class="spot"></span>Pop</p>
+                    </div>
+                </svg>
+            </div>
+            <div class="svg-wrapper" id="btnEraser">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                        <p><span class="spot"></span>Eraser</p>
+                    </div>
+                </svg>
+            </div>
+            <div class="svg-wrapper" id="btnClear">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                        <p><span class="spot"></span>Clear All</p>
+                    </div>
+                </svg>
+            </div>
+            <!--End button -->
+
+
+
+<!----           <button id="btnBlack" class="button">New Sketch</button>
             <button id="btnColor" class="button">Pick a Color!</button>
             <button id="btnGreyscale" class="button">Greyscale</button>
             <button id="btnBubble" class="button">Bubble Wrap</button>
             <button id="btnEraser" class="button">Eraser</button>
             <button id="btnClear" class="button">Clear All</button>
+        -->
         </div>
     </div>
     <div id=divContainer>

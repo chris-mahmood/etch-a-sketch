@@ -70,7 +70,7 @@ let etchClear = () => {
 let etchGreyscale = () => {
     let gridSquare = document.querySelectorAll(".gridSquare");
     gridSquare.forEach(gridSquare => {
-        gridSquare.style.background = "";
+        document.getElementById("divGridBox").style.background = "white";
         gridSquare.addEventListener('mouseover', (t) => {
             t.target.style.background="black";
             t.target.style.opacity = `${Number(t.target.style.opacity) + 0.1}`;
