@@ -60,9 +60,6 @@ h1{
 
 
 
-/*    start code for the actual button:         */
-
-
 /*   
     Spot is the span on the inside of the href that
     fills the parent and makes the hover and link work
@@ -100,7 +97,7 @@ h1{
   */
   
   #shape {
-    stroke-width: 6px;
+    stroke-width: 10px;
     fill: transparent;
     stroke: lightblue;
     stroke-dasharray: 85 400;
@@ -126,15 +123,31 @@ h1{
     text-shadow: 2px 2px #000000;
   }
   /* 
-      Changing the shape on hover. I change the color of the stroke,
-  make it thinner, then set it to again wrap around the entire parent element.
+      Changing the shape on hover.
   */
   
   .svg-wrapper:hover #shape {
     stroke-dasharray: 50 0;
-    stroke-width: 3px;
+    stroke-width: 8px;
     stroke-dashoffset: 0;
     stroke: rgb(243, 165, 217);
   }
   
+  .shake{
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+  }
   
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }

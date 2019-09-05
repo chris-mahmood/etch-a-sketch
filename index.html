@@ -12,8 +12,10 @@
 
 <body>
     <h1>Etch-a-Sketch</h1>
+     <!--Buttons-->
     <div id="divBtnWrap">
         <div id="divBtn">
+           
             <div class="svg-wrapper" id="btnBlack">
                 <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
                     <rect id="shape" height="40" width="150" />
@@ -22,7 +24,7 @@
                     </div>
                 </svg>
             </div>
-            <!--Next button -->
+        
             <div class="svg-wrapper" id="btnColor">
                 <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
                     <rect id="shape" height="40" width="150" />
@@ -64,22 +66,13 @@
                     </div>
                 </svg>
             </div>
-            <!--End button -->
-
-
-
-<!----           <button id="btnBlack" class="button">New Sketch</button>
-            <button id="btnColor" class="button">Pick a Color!</button>
-            <button id="btnGreyscale" class="button">Greyscale</button>
-            <button id="btnBubble" class="button">Bubble Wrap</button>
-            <button id="btnEraser" class="button">Eraser</button>
-            <button id="btnClear" class="button">Clear All</button>
-        -->
         </div>
     </div>
-    <div id=divContainer>
+    <!--End buttons-->
+    <div id=divContainer> <!--divs for etch-a-sketch grid-->
         <div id="divGridBox"></div>
     </div>
+    <!--Color picker and base script calls-->
     <script src="https://unpkg.com/vanilla-picker@2"></script>
     <script src="app.js"></script>
 

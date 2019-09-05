@@ -13,8 +13,8 @@ let makeGrid = (numSize) => {
 //get user input for grid size
 let gridSize = () => {
     let gridParam = '';
-    gridParam = prompt("How many Rows and Columns would you like?");
-    while (isNaN(gridParam) || gridParam <= 0) {
+    gridParam = prompt("How many Rows and Columns would you like? Maximum is 100. ");
+    while (isNaN(gridParam) || gridParam <= 0 || gridParam>100) {
         alert("Please enter a valid value.")
         gridParam = prompt("How many Rows and Columns would you like?");
     }
@@ -26,13 +26,14 @@ let setSquareSize = (numSize) => {
     let baseSquare = document.getElementsByClassName("gridSquare");
     let i;
     for (i = 0; i < baseSquare.length; i++) {
-        baseSquare[i].style.height = (750 / numSize) + "px";
-        baseSquare[i].style.width = (750 / numSize) + "px";
+        baseSquare[i].style.height = (749 / numSize) + "px";
+        baseSquare[i].style.width = (749 / numSize) + "px";
     }
 }
 
-//Square fills: To be called by buttons
+//Square fills: To be called by buttons, black is the default.
 let etchBlack = () => {
+    document.getElementById("divContainer").classList.remove("shake");
     let gridSquare = document.querySelectorAll(".gridSquare");
     gridSquare.forEach(gridSquare => {
         gridSquare.addEventListener('mouseover', (t) => {
@@ -40,8 +41,9 @@ let etchBlack = () => {
         });
     });
 }
-
+//Fill in the squares based on user's chosen color
 let etchColor = (color) => {
+    document.getElementById("divContainer").classList.remove("shake");
     let gridSquare = document.querySelectorAll(".gridSquare");
     gridSquare.forEach(gridSquare => {
         gridSquare.addEventListener('mouseover', (t) => {
@@ -49,8 +51,9 @@ let etchColor = (color) => {
         });
     });
 }
-
+//Erase squares (back to the default background)
 let etchErase = () => {
+    document.getElementById("divContainer").classList.remove("shake");
     let gridSquare = document.querySelectorAll(".gridSquare");
     gridSquare.forEach(gridSquare => {
         gridSquare.addEventListener('mouseover', (t) => {
@@ -58,27 +61,33 @@ let etchErase = () => {
         });
     });
 }
-
+//Clear the entire grid, retaining size and last picked fill
 let etchClear = () => {
+    document.getElementById("divContainer").classList.remove("shake");
+    document.getElementById("divContainer").classList.add("shake");
     let gridSquare = document.querySelectorAll(".gridSquare");
     gridSquare.forEach(gridSquare => {
         gridSquare.style.background = "";
+        gridSquare.style.opacity="1";
     });
-    etchBlack();
 }
-
+//Increase opacity on each pass 
 let etchGreyscale = () => {
+    document.getElementById("divContainer").classList.remove("shake");
+    etchClear();    
     let gridSquare = document.querySelectorAll(".gridSquare");
     gridSquare.forEach(gridSquare => {
-        document.getElementById("divGridBox").style.background = "white";
+        document.getElementById("divGridBox").style.background = "#fae6f0";
+        gridSquare.style.opacity="0";
         gridSquare.addEventListener('mouseover', (t) => {
             t.target.style.background="black";
             t.target.style.opacity = `${Number(t.target.style.opacity) + 0.1}`;
         });
     });
 }
-
+//Fill the grid with unpopped "bubble wrap" that pops
 let etchBubble = () => {
+    document.getElementById("divContainer").classList.remove("shake");
     let gridSquare = document.querySelectorAll(".gridSquare");
     gridSquare.forEach(gridSquare => {
         gridSquare.style.background = "url('images/bubble.png')";
